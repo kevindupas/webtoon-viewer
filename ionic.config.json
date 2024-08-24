@@ -1,0 +1,8 @@
+{
+  "name": "WebtoonViewer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "24bfa41a"
+}
