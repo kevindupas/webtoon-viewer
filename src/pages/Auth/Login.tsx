@@ -15,6 +15,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import { API_URL } from "../../Utils/url";
 
 const Login: React.FC = () => {
   const { login } = useAuth();
@@ -22,25 +23,10 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const [present] = useIonToast();
-  // const [storage, setStorage] = useState<Storage | null>(null);
-
-  // useEffect(() => {
-  //   const initStorage = async () => {
-  //     const newStorage = new Storage({
-  //       name: "webtoon-db",
-  //       storeName: "_ionicstorage",
-  //       driverOrder: [Drivers.IndexedDB],
-  //     });
-  //     await newStorage.create();
-  //     setStorage(newStorage);
-  //   };
-
-  //   initStorage();
-  // }, []);
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login", {
+      const response = await axios.post(`${API_URL}/login`, {
         email,
         password,
       });

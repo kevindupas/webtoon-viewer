@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { API_URL } from "../../Utils/url";
 
 const Register: React.FC = () => {
   const [name, setName] = useState("");
@@ -24,7 +25,7 @@ const Register: React.FC = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+      const response = await axios.post(`${API_URL}/register`, {
         name,
         email,
         password,
