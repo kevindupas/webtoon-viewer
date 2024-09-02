@@ -13,7 +13,7 @@ import {
   IonToolbar,
   useIonViewWillEnter,
 } from "@ionic/react";
-import { search } from "ionicons/icons";
+import { bookSharp, search } from "ionicons/icons";
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Grid } from "swiper/modules";
@@ -138,13 +138,34 @@ const Home: React.FC = () => {
               modules={[Grid]}
               className="px-4"
             >
-              {allWebtoons?.map((webtoon: Webtoon) => (
+              {allWebtoons?.map((webtoon: Webtoon, index: number) => (
                 <SwiperSlide key={webtoon.id}>
                   <div onClick={() => handleWebtoonClick(webtoon.id)}>
                     <WebtoonCard webtoon={webtoon} />
                   </div>
                 </SwiperSlide>
               ))}
+
+              <SwiperSlide>
+                <div
+                  className="relative w-full h-44 rounded-lg overflow-hidden shadow-lg"
+                  onClick={() => history.push("/tabs/genres")}
+                >
+                  {/* <img
+                    src="https://placehold.co/300x900"
+                    alt="webtoon"
+                    className="w-full h-full object-cover"
+                  /> */}
+                  <div className="flex flex-col justify-center items-center">
+                    <IonIcon
+                      icon={bookSharp}
+                      className="text-2xl text-red-500"
+                    />
+                    <p className="text-center">Voir plus de webtoons</p>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                </div>
+              </SwiperSlide>
             </Swiper>
           </div>
         </div>

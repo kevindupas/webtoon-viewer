@@ -2,10 +2,10 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
+import TabsContainer from "./components/TabsContainer";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import ChapterViewer from "./pages/ChapterViewer";
-import TabsContainer from "./pages/TabsContainer";
 import WebtoonDetail from "./pages/WebtoonDetail";
 
 /* Core CSS required for Ionic components to work properly */
@@ -36,7 +36,6 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
-import Menu from "./components/Menu";
 import "./theme/variables.css";
 
 setupIonicReact();
@@ -44,7 +43,6 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <Menu />
       <IonRouterOutlet>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />

@@ -6,13 +6,14 @@ import {
   IonTabButton,
   IonTabs,
 } from "@ionic/react";
-import { ellipse, home, square } from "ionicons/icons";
+import { albums, book, home, square } from "ionicons/icons";
 import React, { useContext } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { ThemeContext } from "../contexts/ThemeContext";
-import Genres from "./Genres";
-import Home from "./Home";
-import MyProfile from "./MyProfile";
+import AllWebtoon from "../pages/AllWebtoon";
+import Genres from "../pages/Genres";
+import Home from "../pages/Home";
+import MyProfile from "../pages/MyProfile";
 
 const TabsContainer: React.FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -20,6 +21,7 @@ const TabsContainer: React.FC = () => {
     <IonTabs>
       <IonRouterOutlet>
         <Route exact path="/tabs/home" component={Home} />
+        <Route exact path="/tabs/all" component={AllWebtoon} />
         <Route exact path="/tabs/genres" component={Genres} />
         <Route exact path="/tabs/myprofile" component={MyProfile} />
         <Route exact path="/tabs">
@@ -31,8 +33,12 @@ const TabsContainer: React.FC = () => {
           <IonIcon icon={home} />
           <IonLabel>Home</IonLabel>
         </IonTabButton>
+        <IonTabButton tab="all" href="/tabs/all">
+          <IonIcon icon={book} />
+          <IonLabel>Webtoons</IonLabel>
+        </IonTabButton>
         <IonTabButton tab="genres" href="/tabs/genres">
-          <IonIcon icon={ellipse} />
+          <IonIcon icon={albums} />
           <IonLabel>Genres</IonLabel>
         </IonTabButton>
         <IonTabButton tab="myprofile" href="/tabs/myprofile">
